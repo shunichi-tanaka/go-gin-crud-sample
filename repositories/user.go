@@ -1,6 +1,8 @@
 package repositories
 
 import (
+	"database/sql"
+
 	"go-gin-crud-sample/models"
 )
 
@@ -9,6 +11,7 @@ type UserRepository interface {
 }
 
 type userRepository struct {
+	DB *sql.DB
 }
 
 func NewUserRepository() userRepository {
