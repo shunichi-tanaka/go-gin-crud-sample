@@ -1,7 +1,7 @@
 package service
 
 import (
-	"go-gin-crud-example/models"
+	"go-gin-crud-sample/models"
 )
 
 type UserService interface {
@@ -11,10 +11,16 @@ type UserService interface {
 type userService struct {
 }
 
-func NewUserService() userService {
+func NewUserService() UserService {
 	return &userService{}
 }
 
 func (us *userService) GetUser(ID string) (*models.User, error) {
-	return &models.User{}
+
+	user := models.User{
+		ID:   ID,
+		Name: "Bob",
+	}
+
+	return &user, nil
 }
