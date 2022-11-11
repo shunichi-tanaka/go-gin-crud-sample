@@ -16,6 +16,16 @@ type Server struct {
 
 var ServerSetting = &Server{}
 
+type Database struct {
+	Type         string
+	User         string
+	Password     string
+	Host         string
+	DatabaseName string
+}
+
+var DatabaseSetting = &Database{}
+
 var cfg *ini.File
 
 func SetUp() {
@@ -26,6 +36,7 @@ func SetUp() {
 	}
 
 	mapTo("server", ServerSetting)
+	mapTo("database", DatabaseSetting)
 
 	ServerSetting.ReadTimeout = ServerSetting.ReadTimeout * time.Second
 	ServerSetting.WriteTimeout = ServerSetting.WriteTimeout * time.Second
