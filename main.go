@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go-gin-crud-sample/db"
 	"go-gin-crud-sample/pkg/setting"
 	"go-gin-crud-sample/routers"
 	"log"
@@ -12,6 +13,7 @@ import (
 
 func init() {
 	setting.SetUp()
+	db.Init()
 }
 
 func main() {
