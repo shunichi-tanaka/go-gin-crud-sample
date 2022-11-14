@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	db  *gorm.db
+	db  *gorm.DB
 	err error
 )
 
@@ -43,7 +43,7 @@ func Close() {
 	if err != nil {
 		return
 	}
-	if err != sqldb.Close(); err != nil {
+	if err := sqldb.Close(); err != nil {
 		panic(err)
 	}
 }

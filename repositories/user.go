@@ -1,28 +1,29 @@
 package repositories
 
 import (
-	"database/sql"
+	"gorm.io/gorm"
 
 	"go-gin-crud-sample/models"
 )
 
 type UserRepository interface {
-	FindByID(ID string) (*models.User, error)
+	FindByID(id string) (*models.User, error)
 }
 
 type userRepository struct {
-	DB *sql.DB
+	db *gorm.DB
 }
 
 func NewUserRepository() UserRepository {
 	return &userRepository{}
 }
 
-func (ur *userRepository) FindByID(ID string) (*models.User, error) {
+func (ur *userRepository) FindByID(id string) (*models.User, error) {
 
-	user := models.User{
-		ID:   "1",
-		Name: "Bob",
+	user := models.User{}
+	err := ur.db.First(&user, "id = ?", id).Error
+	if err != nil {
+		return nil, err
 	}
 
 	return &user, nil
