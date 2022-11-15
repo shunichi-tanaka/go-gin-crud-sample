@@ -3,7 +3,7 @@ package app
 import (
 	"net/http"
 
-	"go-gin-crud-example/pkg/e"
+	"go-gin-crud-sample/pkg/e"
 
 	"github.com/gin-gonic/gin"
 )
